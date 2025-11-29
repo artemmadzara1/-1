@@ -154,7 +154,7 @@ while True:
                 print("выша пицца добавлена")
                 total_amount +=current_menu[user_pizza]['цена']
                 order.append({
-                    "пицца": user_pizza,
+                    "название": user_pizza,
                     "цена": current_menu[user_pizza]['цена'],
                     "тип": "пицца"
                 })
@@ -249,8 +249,30 @@ while True:
     try:
         issuing_an_order = int(input())
         if issuing_an_order == 1:
-            print("ваш заказ приготовиться и мы вам его принесем")
+            print(f"ваш заказ приготовиться и мы вам его принесем а покачто оплатите заказ его сумма {total_amount}")
+            payid =input("выберите оплату"
+                         "картой"
+                         "наличными")
+            if payid =="картой":
+                print("оплата прошла подождите заказ")
+            elif payid =="наличными":
+                summa=int(input(f"вот сумма {total_amount}  к оплате"))
+                if summa == total_amount:
+                    print("оплата прошла успешна")
+                else:
+                    print("вы дали не достаточно денег")
         else:
-            print("подождите заказ и пресядьте")
+            print(f"подождите заказ и пресядьте но сначала оплатите вот суммма к оплате {total_amount}")
+            payid = input("выберите оплату"
+                          "картой"
+                          "наличными")
+            if payid == "картой":
+                print("оплата прошла подождите заказ")
+            elif payid == "наличными":
+                summa = int(input(f"вот сумма {total_amount}  к оплате"))
+                if summa == total_amount:
+                    print("оплата прошла успешна")
+                else:
+                    print("вы дали не достаточно денег")
     except ValueError:
         print("введите число")
